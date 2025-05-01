@@ -1,0 +1,39 @@
+.topbar {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: white;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.logo {
+    width: 100px;
+}
+
+.logoImg {
+    width: 100%;
+    height: auto;
+}
+
+.mobileMenu {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .mobileMenu {
+        display: block;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .nav {
+        display: none;
+    }
+}
