@@ -1,80 +1,54 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useCallback, useEffect, useState } from 'react';
 import styles from './carousel.module.css';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import Image from 'next/image';
+import type { EmblaCarouselType } from 'embla-carousel'
+import useEmblaCarousel from 'embla-carousel-react';
+import Autoplay from 'embla-carousel-autoplay';
 
-type Slide = {
-  id: number;
-  img: string;
-};
-
-const animations = {
-  initial: { x: -300, opacity: 0 },
-  animate: { x: 0, opacity: 1 },
-  exit: { x: 300, opacity: 0 },
-  // {
-  //   initial: { scale: 0.8, opacity: 0 },
-  //   animate: { scale: 1, opacity: 1 },
-  //   exit: { scale: 0.8, opacity: 0 },
-  // }, // zoom
-  // {
-  //   initial: { opacity: 0 },
-  //   animate: { opacity: 1 },
-  //   exit: { opacity: 0 },
-  // }, // fade
-};
-
-interface AnimatedCarouselProps {
-  slides: Slide[];
-  autoPlayInterval?: number;
+interface EmblaCarouselProps {
+  slides: string[]
 }
 
-export default function AnimatedCarousel({
-  slides,
-  autoPlayInterval = 7000,
-}: AnimatedCarouselProps) {
-  const [index, setIndex] = useState(0);
+const Carousel:React.FC<EmblaCarouselProps> = ({ slides }) => {
 
-  const next = () => {
-    setIndex((prev) => (prev + 1) % slides.length);
-  };
-
-  const prev = () => {
-    setIndex((prev) => (prev - 1 + slides.length) % slides.length);
-  };
+  const [ emblaRef, emblaApi ] = useEmblaCarousel({loop: true}, [
+    Autoplay({ delay: 3000 })
+  ]);
+  const [ embla, setEmbla ] = useState<EmblaCarouselType | null>(null);
 
   useEffect(() => {
-    const interval = setInterval(next, autoPlayInterval);
-    return () => clearInterval(interval);
-  }, [index]);
+    if (emblaApi){
+      setEmbla(emblaApi);
+    }
+  }, [emblaApi]);
 
+  const scrollNext = useCallback(() => {
+    embla?.scrollNext();
+  }, [embla]);
+
+  const scrollPrev = useCallback(() => {
+    embla?.scrollPrev();
+  }, [embla]);
+
+  
   return (
-    <div className={styles.carouselContainer}>
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={slides[index].id}
-          initial={animations.initial}
-          animate={animations.animate}
-          exit={animations.exit}
-          transition={{ duration: 0.8 }}
-          className={styles.slideWrapper}
-        >
-            <div className={styles.imgContainer}>
-                <Image src={slides[index].img} alt='boxdelabonita' width={0} height={0} unoptimized quality={100} className={styles.img}/>
+    <div className={styles.embla}>
+      <div className={styles.emblaViewPort} ref={emblaRef}>
+        <div className={styles.emblaContainer}>
+          {slides.map((src, index) => (
+            <div className={styles.emblaSlide} key={index}>
+              <img className={styles.emblaSlideImage} src={src} alt={`Slide ${index + 1}`} />
             </div>
-          {/* {slides[index].img} */}
-        </motion.div>
-      </AnimatePresence>
-
-      <button className={`${styles.navButton} ${styles.leftButton}`} onClick={prev}>
-        <ChevronLeft size={'3rem'}/>
-      </button>
-      <button className={`${styles.navButton} ${styles.rightButton}`} onClick={next}>
-        <ChevronRight size={'3rem'}/>
-      </button>
+          ))}
+        </div>
+      </div>
+      <button onClick={scrollPrev} className={styles.btn}>‹</button>
+      <button onClick={scrollNext} className={styles.btn}>›</button>
+      {/* <div className={styles.emblaButtons}>
+      </div> */}
     </div>
   );
 }
+
+export default Carousel

@@ -37,7 +37,7 @@
     text-align: center;
     text-transform: capitalize;
     display: -webkit-box;
-    -webkit-line-clamp: 1; /* 👈 number of lines */
+    -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
 

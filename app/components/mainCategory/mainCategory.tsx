@@ -1,7 +1,7 @@
 'use client';
 
 import Image from "next/image";
-import Slider from "./slider";
+import Carousel from "./carousel";
 import Link from "next/link";
 import styles from './mainCategory.module.css';
 
@@ -127,7 +127,7 @@ const mainCategoryData = [
 const MainCategory = () => {
     return (
         <div className={styles.mainCategory}>
-            <Slider items={mainCategoryData} />
+            <Carousel slides={mainCategoryData} />
         </div>
     )
 }
