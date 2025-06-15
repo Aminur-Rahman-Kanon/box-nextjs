@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 35px;
+    gap: 40px;
 }
 
 .item {
@@ -18,9 +18,9 @@
 
 .imgContainer {
     position: relative;
-    width: 150px;
-    height: 150px;
-    border-radius: 10px;
+    width: 125px;
+    height: 125px;
+    border-radius: 5px;
     overflow: hidden;
 }
 

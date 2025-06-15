@@ -1,21 +1,27 @@
 import React from 'react';
 import styles from './products.module.css';
-import { fetchProducts } from '../../../utilities/fetchProducts';
+import fetchProducts from '@/services/fetchProducts';
 import Product from '../product/product';
+import { ProductType } from '@/types/product';
 
 const Products = async () => {
 
-    const products = await fetchProducts();
+    const products:ProductType[] | string = await fetchProducts();
 
-    const displayProducts = products?.length ? <div className={styles.displayProduct}>
+    let displayProducts;
+    if (typeof products === 'string'){
+        displayProducts = <div>
+            <h2>Nothing to display</h2>
+        </div>
+    }
+    else {
+        displayProducts = <div className={styles.displayProduct}>
         {
             products.map(prd => <Product key={prd._id} product={prd}/>)
         }
-    </div>
-    :
-    <div>
-        <h2 className={styles.headingMedium}>Nothing to display</h2>
-    </div>
+        </div>
+    }
+
     return (
         <div className={styles.products}>
             {displayProducts}

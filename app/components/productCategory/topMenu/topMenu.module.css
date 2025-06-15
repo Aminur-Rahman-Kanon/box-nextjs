@@ -1,0 +1,46 @@
+.topMenu {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 50px;
+    box-sizing: border-box;
+}
+
+.label {
+    font-size: 1rem;
+}
+
+.rightPanel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.select {
+    width:155px;
+    padding: 5px;
+    padding-right: 15px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 1rem;
+    outline: none;
+    appearance: none;
+    position: relative;
+    background-image: url('/images/others/dropdown.svg');
+    background-repeat: no-repeat;
+    background-position: right 5px center;
+    background-size: 16px;
+}
+
+
+@media (max-width: 767px) {
+    .topMenu {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 10px;
+    }
+}

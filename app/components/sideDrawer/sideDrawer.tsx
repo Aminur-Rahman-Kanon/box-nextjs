@@ -16,8 +16,10 @@ const SideDrawer = () => {
     const closeSideDrawer = useUIStore((state) => state.closeDrawer);
     const isShopMenuOpen = useUIStore((state) => state.isShopMenuOpen);
     const isCategoryMenuOpen = useUIStore((state) => state.isCategoryMenuOpen);
-    const toggleShopMenu = useUIStore(state => state.toggleShopMenu);
-    const toggleCategoryMenu = useUIStore(state => state.toggleCategoryMenu)
+    const openShopMenu = useUIStore(state => state.openShopMenu);
+    const closeShopMenu = useUIStore(state => state.closeShopMenu);
+    const openCategoryMenu = useUIStore(state => state.openCategoryMenu);
+    const closeCategoryMenu = useUIStore(state => state.closeCategoryMenu)
     
     return (
         <div className={isDrawerOpen ? `${styles.sidedrawerContainer} ${styles.show}` : styles.sidedrawerContainer}>
@@ -34,9 +36,9 @@ const SideDrawer = () => {
                             <a href='/' className={styles.link}>Home</a>
                         </li>
                         <li className={styles.parentList}>
-                            <span className={styles.parent} onClick={toggleShopMenu}>Shop</span>
+                            <span className={styles.parent} onClick={openShopMenu}>Shop</span>
                             <div className={isShopMenuOpen ? `${styles.child} ${styles.slideRight}` : styles.child}>
-                                <div className={styles.angleLeftContainer} onClick={toggleShopMenu}>
+                                <div className={styles.angleLeftContainer} onClick={closeShopMenu}>
                                     <FontAwesomeIcon icon={ faAngleLeft } className={styles.angleIcon} />
                                 </div>
                                 <div className={styles.childContainer}>
@@ -45,9 +47,9 @@ const SideDrawer = () => {
                             </div>
                         </li>
                         <li className={styles.parentList}>
-                            <span className={styles.parent} onClick={toggleCategoryMenu}>Category</span>
+                            <span className={styles.parent} onClick={openCategoryMenu}>Category</span>
                             <div className={isCategoryMenuOpen ? `${styles.child} ${styles.slideRight}` : styles.child}>
-                                <div className={styles.angleLeftContainer} onClick={toggleCategoryMenu}>
+                                <div className={styles.angleLeftContainer} onClick={closeCategoryMenu}>
                                     <FontAwesomeIcon icon={ faAngleLeft } className={styles.angleIcon} />
                                 </div>
                                 <div className={styles.childContainer}>

@@ -10,11 +10,12 @@
     color: black;
     font-size: 1rem;
     font-weight: 400;
+    cursor: pointer;
 }
 
 .nestedItem {
     position: absolute;
-    top: 50px;
+    top: 60px;
     left: 2.5%;
     margin: auto;
     width: 95%;

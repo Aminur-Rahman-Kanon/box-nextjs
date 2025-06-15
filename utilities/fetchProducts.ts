@@ -18,10 +18,8 @@ export type ProductType = {
     subCategory: string
 }
 
-export async function fetchProducts(): Promise<ProductType[] | []> {
+export async function fetchProducts(): Promise<ProductType[]> {
     const url = process.env.RENDER_EXTERNAL_URL as string || 'http://localhost:3000';
-
-    console.log(url);
 
     const promise = await fetch(`${url}/api/fetchProducts`, {
         cache: 'no-store'

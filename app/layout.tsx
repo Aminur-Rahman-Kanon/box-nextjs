@@ -6,6 +6,7 @@ import Footer from "./components/footer/footer";
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import SideDrawer from "./components/sideDrawer/sideDrawer";
+import RouteChangeSpinner from "./components/RouteChangeSpinner/routeChangeSpinner";
 config.autoAddCss = false;
 
 const rubik = Rubik({ subsets: ['latin'] })
@@ -25,6 +26,7 @@ export default function RootLayout({
       <body
         className={rubik.className}
       >
+        <RouteChangeSpinner />
         <Topbar />
         <SideDrawer />
         {children}

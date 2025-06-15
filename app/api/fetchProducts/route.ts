@@ -8,15 +8,11 @@ export async function GET () {
 
     const cached = await redis.get('products');
 
-    console.log(cached)
-
     if (cached){
         return NextResponse.json(cached);
     }
 
     const products = await Product.find().lean();
-
-    console.log(products);
 
     await redis.set('products', JSON.stringify(products), { ex: 1800 });
 

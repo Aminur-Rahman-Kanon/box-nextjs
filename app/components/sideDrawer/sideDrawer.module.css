@@ -9,7 +9,7 @@
     box-sizing: border-box;
     background-color: white;
     border-radius: 0 5px 5px 0;
-    display: flex;
+    display: none;
     flex-flow: column;
     justify-content: space-between;
     align-items: flex-start;
@@ -51,10 +51,11 @@
     position: absolute;
     top: 15px;
     right: 15px;
-    width: 100%;
+    /* width: 100%; */
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    z-index: 700;
 }
 
 .x {
@@ -100,7 +101,7 @@
 }
 
 .navbar {
-    width: 100%;
+    /* width: 100%; */
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -118,7 +119,7 @@
 }
 
 .parentList {
-    width: 100%;
+    /* width: 100%; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -176,8 +177,6 @@
     font-size: 1.3rem;
     color: rgb(45, 45, 45);
 }
-
-
 
 /*bottom*/
 .bottomContainer {
@@ -278,4 +277,10 @@
     font-weight: 400;
     color: rgb(49, 49, 49);
     margin: 10px 0;
+}
+
+@media (max-width: 767px) {
+    .sidedrawerContainer {
+        display: flex;
+    }
 }

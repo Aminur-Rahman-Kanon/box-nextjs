@@ -5,8 +5,6 @@ if (!mongoUri){
     throw new Error('Please define the MONGO_URI environmental variable');
 }
 
-console.log(mongoUri)
-
 //check for cached connection
 let cached = (global as any).mongoose;
 
@@ -21,7 +19,7 @@ export async function connectToDatabase () {
 
     if (!cached.promise){
         cached.promise = mongoose.connect(mongoUri, {
-            bufferCommands: false
+            bufferCommands: true
         }).then(conn => conn)
     }
 

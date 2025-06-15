@@ -5,20 +5,28 @@ interface UIState {
     isDrawerOpen: boolean,
     isShopMenuOpen: boolean,
     isCategoryMenuOpen: boolean,
+    routeChangeSpinner: boolean,
     openDrawer: () => void,
     closeDrawer: () => void,
     toggleDrawer: () => void,
-    toggleShopMenu: () => void,
-    toggleCategoryMenu: () => void
+    openShopMenu: () => void,
+    closeShopMenu: () => void,
+    openCategoryMenu: () => void;
+    closeCategoryMenu: () => void,
+    toggleRouteChangeSpinner: () => void
 }
 
 export const useUIStore = create<UIState>((set) => ({
     isDrawerOpen: false,
     isShopMenuOpen: false,
     isCategoryMenuOpen: false,
+    routeChangeSpinner: false,
     openDrawer: () => set(state => ({ isDrawerOpen: true })),
-    closeDrawer: () => set(state => ({ isDrawerOpen: false })),
+    closeDrawer: () => set(state => ({ isDrawerOpen: false, isCategoryMenuOpen: false, isShopMenuOpen: false })),
     toggleDrawer: () => set(state => ({ isDrawerOpen: state.isDrawerOpen })),
-    toggleShopMenu: () => set(state => ({ isShopMenuOpen: !state.isShopMenuOpen})),
-    toggleCategoryMenu: () => set(state => ({ isCategoryMenuOpen: !state.isCategoryMenuOpen }))
+    openShopMenu: () => set(state => ({ isShopMenuOpen: true })),
+    closeShopMenu: () => set(state => ({ isShopMenuOpen: false })),
+    openCategoryMenu: () => set(state => ({ isCategoryMenuOpen: true })),
+    closeCategoryMenu: () => set(state => ({ isCategoryMenuOpen: false })),
+    toggleRouteChangeSpinner: () => set(state => ({ routeChangeSpinner: !state.routeChangeSpinner }))
 }))
