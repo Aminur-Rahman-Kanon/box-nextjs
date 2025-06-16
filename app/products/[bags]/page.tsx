@@ -11,7 +11,7 @@ import { ProductType } from '@/types/product';
 //     }
 // }
 
-export default async function Page({ params }: {params: { bags: string }}) {
+export default async function Page({ params }) {
   const { bags } = params;
   const product = decodeURIComponent(bags || 'all bags');
   const products:ProductType[] = await fetchProducts()
