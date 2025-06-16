@@ -12,7 +12,7 @@ type PageProps = {
 }
 
 export default async function Page({ params }: PageProps) {
-  const { bags } = await params
+  const { bags } = await Promise.resolve(params);
   const product = decodeURIComponent(bags || 'all bags');
   const products:ProductType[] = await fetchProducts()
 
