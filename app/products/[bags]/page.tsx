@@ -10,7 +10,7 @@ type Params = {
 }
 
 export default async function Page({ params }: { params: Params }) {
-  const { bags } = params;
+  const { bags } = await params;
   const product = decodeURIComponent(bags || 'all bags');
   const products:ProductType[] = await fetchProducts()
 
