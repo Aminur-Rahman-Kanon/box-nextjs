@@ -11,8 +11,8 @@ type PageProps = {
 }
 
 export default async function Page({ params } : PageProps) {
-  // const { bags } = await params;
-  const product = decodeURIComponent(params.bags || 'all bags');
+  const { bags } = await params;
+  const product = decodeURIComponent(bags || 'all bags');
   const products:ProductType[] = await fetchProducts()
 
   return (
