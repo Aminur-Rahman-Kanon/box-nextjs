@@ -5,10 +5,12 @@ import ProductCategory from '@/app/components/productCategory/productCategory';
 import { ProductType } from '@/types/product';
 
 type PageProps = {
-  bags: string
+  params: {
+    bags: string
+  }
 }
 
-export default async function Page({ params } : { params: { bags: string } }) {
+export default async function Page({ params } : PageProps) {
   // const { bags } = await params;
   const product = decodeURIComponent(params.bags || 'all bags');
   const products:ProductType[] = await fetchProducts()
