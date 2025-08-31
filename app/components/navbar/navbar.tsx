@@ -7,6 +7,7 @@ import Link from 'next/link';
 import Shop from '../nestedNavItem/shop/shop';
 import Category from '../nestedNavItem/category/category';
 import { useUIStore } from '@/stores/useUIStore';
+import { useCart } from '../cartContextProvider/cartContextProvider';
 
 const Navbar = () => {
 

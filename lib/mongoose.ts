@@ -7,7 +7,7 @@ if (!mongoUri){
 
 //check for cached connection
 let cached = (global as any).mongoose;
-
+//if not then set mongoose global object
 if (!cached){
     cached = (global as any).mongoose = {conn: null, promise: null}
 }

@@ -6,7 +6,7 @@ import Link from "next/link";
 import styles from './mainCategory.module.css';
 
 const mainCategoryData = [
-    <Link href={'/bag/bucket bag'} className={styles.link}>
+    <Link href={'/products/bucket bag'} className={styles.link}>
         <div className={styles.imgContainer}>
             <Image src={'/images/category/bag2.jpg'}
                     alt="bucket bag"
@@ -19,7 +19,7 @@ const mainCategoryData = [
         <span className={styles.textSmall}>Bucket Bag</span>
     </Link>,
 
-    <Link href={'/bag/shoulder bag'} className={styles.link}>
+    <Link href={'/products/shoulder bag'} className={styles.link}>
         <div className={styles.imgContainer}>
             <Image src={'/images/category/bag1.jpg'}
                     alt="shoulder bag"
@@ -32,7 +32,7 @@ const mainCategoryData = [
         <span className={styles.textSmall}>Shoulder Bag</span>
     </Link>,
 
-    <Link href={'/bag/backpack'} className={styles.link}>
+    <Link href={'/products/backpack'} className={styles.link}>
         <div className={styles.imgContainer}>
             <Image src={'/images/category/bag3.jpg'}
                     alt="backpack"
@@ -45,7 +45,7 @@ const mainCategoryData = [
         <span className={styles.textSmall}>Backpack</span>
     </Link>,
 
-    <Link href={'/bag/clutch bag'} className={styles.link}>
+    <Link href={'/products/clutch bag'} className={styles.link}>
         <div className={styles.imgContainer}>
             <Image src={'/images/category/bag4.jpg'}
                     alt="bucket bag"
@@ -58,7 +58,7 @@ const mainCategoryData = [
         <span className={styles.textSmall}>Clutch Bag</span>
     </Link>,
 
-    <Link href={'/bag/saddle bag'} className={styles.link}>
+    <Link href={'/products/saddle bag'} className={styles.link}>
         <div className={styles.imgContainer}>
             <Image src={'/images/category/bag7.jpg'}
                     alt="saddle bag"
@@ -71,7 +71,7 @@ const mainCategoryData = [
         <span className={styles.textSmall}>Saddle Bag</span>
     </Link>,
 
-    <Link href={'/bag/designer bag'} className={styles.link}>
+    <Link href={'/products/designer bag'} className={styles.link}>
         <div className={styles.imgContainer}>
             <Image src={'/images/category/bag6.jpg'}
                     alt="designer bag"
@@ -84,7 +84,7 @@ const mainCategoryData = [
         <span className={styles.textSmall}>Designer Bag</span>
     </Link>,
 
-    <Link href={'/bag/belt & sling bag'} className={styles.link}>
+    <Link href={'/products/belt & sling bag'} className={styles.link}>
         <div className={styles.imgContainer}>
             <Image src={'/images/category/bag8.jpg'}
                     alt="belt & sling bag"
@@ -97,7 +97,7 @@ const mainCategoryData = [
         <span className={styles.textSmall}>Belt & Sling Bag</span>
     </Link>,
 
-    <Link href={'/bag/straw bag'} className={styles.link}>
+    <Link href={'/products/straw bag'} className={styles.link}>
         <div className={styles.imgContainer}>
             <Image src={'/images/category/bag9.jpg'}
                     alt="straw bag"
@@ -110,7 +110,7 @@ const mainCategoryData = [
         <span className={styles.textSmall}>Straw Bag</span>
     </Link>,
 
-    <Link href={'/bag/crossbody bag'} className={styles.link}>
+    <Link href={'/products/crossbody bag'} className={styles.link}>
         <div className={styles.imgContainer}>
             <Image src={'/images/category/bag5.jpg'}
                     alt="crossbody bag"

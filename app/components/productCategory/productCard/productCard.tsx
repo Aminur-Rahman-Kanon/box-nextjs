@@ -12,7 +12,7 @@ const ProductCard:React.FC<Props> = ({ product }) => {
 
     return (
         <div className={styles.productCard}>
-            <Link href={'#'} className={styles.link}>
+            <Link href={`/product/${product.title}`} className={styles.link}>
                 <div className={styles.imgContainer}>
                     <Image src={`${Object.values(product.img)[0]}`}
                            alt={product.title}
@@ -23,7 +23,7 @@ const ProductCard:React.FC<Props> = ({ product }) => {
                 <h3 className={styles.headingBlack}>{product.title}</h3>
                 <data className={styles.price}>&#2547; {product.price.originalPrice - product.price.discountedPrice}</data>
             </Link>
-            <button className={styles.button}>Buy Now</button>
+            {/* <button onClick={() => console.log('pressed')} className={styles.button}>Buy Now</button> */}
         </div>
     )
 }

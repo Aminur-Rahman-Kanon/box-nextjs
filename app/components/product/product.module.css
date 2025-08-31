@@ -10,7 +10,6 @@
 
 .imgContainer {
     width: 100%;
-    height: 300px;
     overflow: hidden;
 }
 
@@ -31,16 +30,15 @@
 }
 
 .title {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 500;
     color: rgb(60, 60, 60);
+    white-space: nowrap;
+    width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
     text-align: center;
     text-transform: capitalize;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-
 }
 
 .priceContainer {
@@ -55,6 +53,12 @@
     font-size: 1rem;
     font-weight: 500;
     color: rgb(70, 70, 70);
+}
+
+.discountedPrice {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: black;
 }
 
 .btn {

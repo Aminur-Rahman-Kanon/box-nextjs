@@ -3,6 +3,7 @@ import styles from './page.module.css';
 import fetchProducts from '@/services/fetchProducts';
 import ProductCategory from '@/app/components/productCategory/productCategory';
 import { ProductType } from '@/types/product';
+import data from '@/app/data/products.json';
 
 type PageProps = {
   params: {
@@ -13,11 +14,15 @@ type PageProps = {
 export default async function Page({ params } : PageProps) {
   const { bags } = await params;
   const product = decodeURIComponent(bags || 'all bags');
-  const products:ProductType[] = await fetchProducts()
+  // const products:ProductType[] = await fetchProducts();
+
+  //manually feeding the data for development phase
+  const products: ProductType[] = JSON.parse(JSON.stringify(data.products));
 
   return (
     <div className={styles.wrapper}>
-      <ProductCategory params={product} products={products}/>
+      <ProductCategory category={product} products={products}/>
     </div>
   );
 }
+

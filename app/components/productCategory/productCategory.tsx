@@ -7,12 +7,11 @@ import ProductCard from './productCard/productCard';
 import TopMenu from './topMenu/topMenu';
 
 type PageProps = {
-    params?: string,
+    category?: string,
     products: ProductType[]
 }
 
-const ProductCategory= ({params, products}: PageProps) => {
-
+const ProductCategory= ({category, products}: PageProps) => {
     //this array is used to store products according to the params and sorting and display them
     const [sortedProducts, setSortedProducts] = useState<ProductType[] | []>(products);
     //this array will keep copy all products after sort by params and then later will be used to setSortedProducts in default form
@@ -20,17 +19,17 @@ const ProductCategory= ({params, products}: PageProps) => {
     //this hook filter the products by the params such as 'all products', 'bucket bag' etc
     useEffect(() => {
         if (typeof(products) !== 'string'){
-            if (params === 'all bags'){
+            if (category === 'all bags'){
                 setSortedProducts(products);
                 setSortedProductsCopy(products);
             }
             else {
-                const filtered = products.filter(itm => itm.category === params || itm.subCategory === params)
+                const filtered = products.filter(itm => itm.category === category || itm.subCategory === category)
                 setSortedProducts(filtered);
                 setSortedProductsCopy(filtered);
             }
         }        
-    }, [params]);
+    }, [category]);
 
     //this will sort the products according to the sorting order
     const handleSort = (sortType:string):void => {
