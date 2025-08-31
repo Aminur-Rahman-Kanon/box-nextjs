@@ -13,7 +13,7 @@ interface Props {
 const Page = async ( { params }: Props ) => {
 
     const titlePrmise = await params.title;
-    const titleProductDecoded = await decodeURI(titlePrmise);
+    const titleProductDecoded = decodeURI(titlePrmise);
 
     //manually feeding the products for development phase
     const products: ProductType[] = JSON.parse(JSON.stringify(data.products))
