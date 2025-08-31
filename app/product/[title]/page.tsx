@@ -6,14 +6,14 @@ import data from '@/app/data/products.json';
 
 interface Props {
     params: {
-        title: string
+        title: Promise<string>
     }
 }
 
 const Page = async ( { params }: Props ) => {
 
-    const { title } = await params;
-    const titleProductDecoded = await decodeURI(title);
+    const titlePrmise = await params.title;
+    const titleProductDecoded = await decodeURI(titlePrmise);
 
     //manually feeding the products for development phase
     const products: ProductType[] = JSON.parse(JSON.stringify(data.products))
