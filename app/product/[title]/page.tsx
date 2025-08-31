@@ -4,15 +4,16 @@ import { ProductType } from '@/types/product';
 import DisplayProductDetails from '@/app/components/displayProductDetails/displayProductDetails';
 import data from '@/app/data/products.json';
 
+
 // interface PageProps {
 //     params: {
 //         title: string
 //     }
 // }
 
-export default function Page (props: { params: { title: string } }) {
-    const { params } = props;
-    const titleProductDecoded = decodeURI(params.title);
+export default async function Page ({ params, }: { params: Promise<{ title: string }>; }) {
+    const { title } = await params;
+    const titleProductDecoded = decodeURI(title);
 
     //manually feeding the products for development phase
     const products: ProductType[] = JSON.parse(JSON.stringify(data.products))
