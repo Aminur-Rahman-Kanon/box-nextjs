@@ -10,7 +10,7 @@ import data from '@/app/data/products.json';
 //     }
 // }
 
-const Page = async (props: { params: { title: string } }) => {
+const Page = (props: { params: { title: string } }) => {
     const { params } = props;
     const titleProductDecoded = decodeURI(params.title);
 
