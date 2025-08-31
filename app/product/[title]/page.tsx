@@ -11,9 +11,17 @@ import data from '@/app/data/products.json';
 //     }
 // }
 
-export default async function Page ({ params, }: { params: Promise<{ title: string }>; }) {
-    const { title } = await params;
-    const titleProductDecoded = decodeURI(title);
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ title: string }>;
+}) {
+  // ✅ resolve the promise
+  const { title } = await params;
+
+  const titleProductDecoded = decodeURI(title);
+
+  console.log(titleProductDecoded)
 
     //manually feeding the products for development phase
     const products: ProductType[] = JSON.parse(JSON.stringify(data.products))
