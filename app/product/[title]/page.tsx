@@ -11,13 +11,9 @@ import data from '@/app/data/products.json';
 //     }
 // }
 
-export default async function Page({
-  params,
-}: {
-  params: Promise<{ title: string }>;
-}) {
+export default function Page({ params }: any) {
   // ✅ resolve the promise
-  const { title } = await params;
+  const { title } = params as { title: string };
 
   const titleProductDecoded = decodeURI(title);
 
