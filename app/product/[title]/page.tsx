@@ -4,14 +4,14 @@ import { ProductType } from '@/types/product';
 import DisplayProductDetails from '@/app/components/displayProductDetails/displayProductDetails';
 import data from '@/app/data/products.json';
 
-interface PageProps {
-    params: {
-        title: string
-    }
-}
+// interface PageProps {
+//     params: {
+//         title: string
+//     }
+// }
 
-const Page = async ( { params }: PageProps ) => {
-
+const Page = async (props: { params: { title: string } }) => {
+    const { params } = props;
     const titleProductDecoded = decodeURI(params.title);
 
     //manually feeding the products for development phase
