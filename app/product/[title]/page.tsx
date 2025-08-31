@@ -4,16 +4,15 @@ import { ProductType } from '@/types/product';
 import DisplayProductDetails from '@/app/components/displayProductDetails/displayProductDetails';
 import data from '@/app/data/products.json';
 
-interface Props {
+interface PageProps {
     params: {
         title: string
     }
 }
 
-const Page = async ( { params }: Props ) => {
+const Page = async ( { params }: PageProps ) => {
 
-    const titlePrmise = params;
-    const titleProductDecoded = decodeURI(titlePrmise.title);
+    const titleProductDecoded = decodeURI(params.title);
 
     //manually feeding the products for development phase
     const products: ProductType[] = JSON.parse(JSON.stringify(data.products))
