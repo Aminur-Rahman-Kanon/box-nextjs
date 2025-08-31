@@ -10,7 +10,7 @@ import data from '@/app/data/products.json';
 //     }
 // }
 
-const Page = (props: { params: { title: string } }) => {
+export default function Page (props: { params: { title: string } }) {
     const { params } = props;
     const titleProductDecoded = decodeURI(params.title);
 
@@ -29,4 +29,3 @@ const Page = (props: { params: { title: string } }) => {
     )
 }
 
-export default Page;
