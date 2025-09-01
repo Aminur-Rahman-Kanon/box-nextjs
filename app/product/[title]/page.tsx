@@ -9,11 +9,12 @@ type Params = Promise<{ title: string }>
 
 export default async function Page(props: { params: Params }) {
   // ✅ resolve the promise
-  const params = await props.params;
+  const params = await props.params.then(ttl => ttl.title);
 
-  const title = params.title
+  console.log(params);
+//   const title = params.title;
 
-  const titleProductDecoded = decodeURI(title);
+  const titleProductDecoded = decodeURI(params);
 
   console.log(titleProductDecoded)
 
