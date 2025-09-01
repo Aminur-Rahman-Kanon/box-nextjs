@@ -4,17 +4,18 @@ import { ProductType } from '@/types/product';
 import DisplayProductDetails from '@/app/components/displayProductDetails/displayProductDetails';
 import data from '@/app/data/products.json';
 
-
 type Params = Promise<{ title: string }>
 
-export default async function Page(props: { params: Params }) {
+export async function generateMetaData({params}: { params: Params }) {
+    const { title } = await params;
+}
+
+
+export default async function Page( {params} : { params: Params }) {
   // ✅ resolve the promise
-  const params = await props.params.then(ttl => ttl.title);
+  const { title } = await params;
 
-  console.log(params);
-//   const title = params.title;
-
-  const titleProductDecoded = decodeURI(params);
+  const titleProductDecoded = decodeURI(title);
 
   console.log(titleProductDecoded)
 
