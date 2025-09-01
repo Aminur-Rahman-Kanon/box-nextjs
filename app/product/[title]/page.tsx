@@ -3,6 +3,7 @@ import styles from './page.module.css';
 import { ProductType } from '@/types/product';
 import DisplayProductDetails from '@/app/components/displayProductDetails/displayProductDetails';
 import data from '@/app/data/products.json';
+import fetchProducts from '@/services/fetchProducts';
 
 // type Params = Promise<{ title: string }>
 
@@ -13,10 +14,9 @@ export default async function Page( params: { params: Promise<{ title: string }>
 
   const titleProductDecoded = decodeURI(title);
 
-  console.log(titleProductDecoded)
-
+  const products: ProductType[] = await fetchProducts();
     //manually feeding the products for development phase
-    const products: ProductType[] = JSON.parse(JSON.stringify(data.products))
+    // const products: ProductType[] = JSON.parse(JSON.stringify(data.products))
 
     const titleProductIndex = products.findIndex(prd => prd.title.toLowerCase() === titleProductDecoded.toLowerCase());
     if (titleProductIndex < 0) return;
