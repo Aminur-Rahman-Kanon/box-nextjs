@@ -7,9 +7,9 @@ import data from '@/app/data/products.json';
 // type Params = Promise<{ title: string }>
 
 
-export default async function Page({ params }: { params: Promise<{ title: string }> }) {
+export default async function Page( params: { params: Promise<{ title: string }>; }) {
   // ✅ resolve the promise
-  const { title } = await params;
+  const { title } = await params.params;
 
   const titleProductDecoded = decodeURI(title);
 
