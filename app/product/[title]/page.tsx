@@ -6,10 +6,6 @@ import data from '@/app/data/products.json';
 
 type Params = Promise<{ title: string }>
 
-export async function generateMetaData({params}: { params: Params }) {
-    const { title } = await params;
-}
-
 
 export default async function Page( {params} : { params: Params }) {
   // ✅ resolve the promise
