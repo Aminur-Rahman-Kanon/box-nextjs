@@ -11,7 +11,9 @@ export default async function Page(props: { params: Params }) {
   // ✅ resolve the promise
   const params = await props.params;
 
-  const titleProductDecoded = decodeURI(params.title);
+  const title = params.title
+
+  const titleProductDecoded = decodeURI(title);
 
   console.log(titleProductDecoded)
 
