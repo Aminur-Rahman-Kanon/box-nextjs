@@ -20,7 +20,7 @@ const fetchData = unstable_cache(async () => {
 
 export default async function fetchProducts (): Promise<ProductType[]> {
     try {
-        // return await fetchData()
+        return await fetchData()
     }
     catch (error) {
         console.error(error);
