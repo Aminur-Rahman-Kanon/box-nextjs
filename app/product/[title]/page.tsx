@@ -5,17 +5,13 @@ import DisplayProductDetails from '@/app/components/displayProductDetails/displa
 import data from '@/app/data/products.json';
 
 
-// interface PageProps {
-//     params: {
-//         title: string
-//     }
-// }
+type Params = Promise<{ title: string }>
 
-export default function Page({ params }: any) {
+export default async function Page(props: { params: Params }) {
   // ✅ resolve the promise
-  const { title } = params as { title: string };
+  const params = await props.params;
 
-  const titleProductDecoded = decodeURI(title);
+  const titleProductDecoded = decodeURI(params.title);
 
   console.log(titleProductDecoded)
 
