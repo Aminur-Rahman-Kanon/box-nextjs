@@ -4,10 +4,10 @@ import { ProductType } from '@/types/product';
 import DisplayProductDetails from '@/app/components/displayProductDetails/displayProductDetails';
 import data from '@/app/data/products.json';
 
-type Params = Promise<{ title: string }>
+// type Params = Promise<{ title: string }>
 
 
-export default async function Page( {params} : { params: Params }) {
+export default async function Page({ params }: { params: Promise<{ title: string }> }) {
   // ✅ resolve the promise
   const { title } = await params;
 
