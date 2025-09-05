@@ -5,7 +5,11 @@
     justify-content: flex-start;
     align-items: flex-start;
     gap: 20px;
-    border: 1px solid lightgray;
+    /* border: 1px solid lightgray; */
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    border-left: 1px solid lightgray;
+    border-right: none;
     padding: 10px;
 }
 
@@ -95,9 +99,16 @@
     background-color: rgb(1, 102, 1);
 }
 
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 @media (max-width: 997px) {
     .orderForm {
         width: 100%;
+        border-right: 1px solid lightgray;
+        border-top: none;
     }
 }
 

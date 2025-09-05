@@ -18,16 +18,20 @@ const CartItems = ({ items }: { items: Cart }) => {
         return toast.success('Item removed');
     }
 
+    const totalPrice = Object.values(items).reduce((acc, curr) =>
+        acc + (curr.item.price.originalPrice - curr.item.price.discountedPrice) * curr.quantity, 0
+    );
+
     return (
         <div className={styles.cartItems}>
             <div className={styles.top}>
                 <h3 className={styles.headingSmall}>Order Summary</h3>
             </div>
 
-            <div className={styles.bottom}>
+            <div className={styles.content}>
                 {
                     Object.values(items).map(prd => <div key={prd.item._id} className={styles.product}>
-                        <div className={styles.header}>
+                        <div className={styles.contentHeader}>
                             <div className={styles.imgContainer}>
                                 <Image src={Object.values(prd.item.img)[0]}
                                        alt={prd.item.title}
@@ -47,12 +51,12 @@ const CartItems = ({ items }: { items: Cart }) => {
                                 </span>
 
                                 <span className={styles.textSmall}>{
-                                    prd.item.price.originalPrice - prd.item.price.discountedPrice
+                                    (prd.item.price.originalPrice - prd.item.price.discountedPrice) * prd.quantity
                                 }</span>
                             </div>
                         </div>
                         
-                        <div className={styles.footer}>
+                        <div className={styles.contentFooter}>
                             <div className={styles.controlBtns}>
                                 <button className={styles.controlBtn}
                                         onClick={() => removeSingleItem(prd.item._id)}
@@ -65,6 +69,23 @@ const CartItems = ({ items }: { items: Cart }) => {
                         </div>
                     </div>)
                 }
+            </div>
+
+            <div className={styles.footer}>
+                <div className={styles.footerItems}>
+                    <h3 className={styles.headingSmall}>Subtotal: </h3>
+                    <span className={styles.footerItem}>&#2547;{ totalPrice }</span>
+                </div>
+
+                <div className={styles.footerItems}>
+                    <h3 className={styles.headingSmall}>Shipping: </h3>
+                    <span className={styles.footerItem}>&#2547;100</span>
+                </div>
+
+                <div className={styles.footerItems}>
+                    <h3 className={styles.headingSmall}>Total: </h3>
+                    <span className={styles.footerItem}>&#2547;10</span>
+                </div>
             </div>
         </div>
     )

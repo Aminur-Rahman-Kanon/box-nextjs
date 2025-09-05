@@ -17,7 +17,12 @@ const OrderForm = () => {
         updateOrderForm(value);
     }
 
-    console.log(orderForm);
+    function submitBtnDisableHandler<T extends Record<string, any>> (orderForm: T){
+        return Object.values(orderForm).every(value =>
+            value !== undefined && value !== null && value !== ''
+        );
+    }
+
     return (
         <div className={styles.orderForm}>
             <div className={styles.top}>
@@ -92,7 +97,7 @@ const OrderForm = () => {
                 </div>
             </div>
 
-            <button className={styles.btn}>Order Now</button>
+            <button className={styles.btn} disabled={!submitBtnDisableHandler(orderForm)}>Order Now</button>
         </div>
     )
 }

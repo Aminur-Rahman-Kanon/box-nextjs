@@ -9,7 +9,9 @@ type Props = {
     product: ProductType
 }
 
-const btnHandler = (item:ProductType) => {
+const btnHandler = (e:React.MouseEvent , item:ProductType) => {
+    e.preventDefault();
+
     const status = addToCart(item);
     if (status === 'success'){
         window.location.href = '/checkout';
@@ -22,7 +24,7 @@ const btnHandler = (item:ProductType) => {
 const BuyNowBtn:React.FC<Props> = ({ product }) => {
 
     return (
-        <button className={styles.buyNowBtn} onClick={() => btnHandler(product)}>
+        <button className={styles.buyNowBtn} onClick={(e) => btnHandler(e, product)}>
             Buy Now
         </button>
     )

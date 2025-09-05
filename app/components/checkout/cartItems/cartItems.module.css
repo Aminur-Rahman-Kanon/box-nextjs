@@ -16,7 +16,7 @@
     font-weight: 500;
 }
 
-.bottom {
+.content {
     width: 100%;
     height: 100%;
     overflow-y: scroll;
@@ -28,12 +28,12 @@
     gap: 35px;
 }
 
-.bottom::-webkit-scrollbar {
+.content::-webkit-scrollbar {
     width: 5px;
     background-color: white;
 }
 
-.bottom::-webkit-scrollbar-thumb {
+.content::-webkit-scrollbar-thumb {
     width: 5px;
     background-color: green;
     border-radius: 10px;
@@ -46,7 +46,7 @@
     align-items: center;
 }
 
-.header {
+.contentHeader {
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -92,7 +92,7 @@
     text-transform: capitalize;
 }
 
-.footer {
+.contentFooter {
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -152,6 +152,30 @@
     background-color: rgb(204, 4, 4);
 }
 
+.footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.footerItems {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+}
+
+.footerItem {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+
+
 @media (max-width: 997px) {
     .cartItems {
         width: 100%;
@@ -168,11 +192,11 @@
         flex-direction: column;
     }
 
-    .header {
+    .contentHeader {
         width: 100%;
     }
 
-    .footer {
+    .contentFooter {
         width: 100%;
     };
 }

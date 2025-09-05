@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from 'react';
 import styles from './checkout.module.css';
-import { getCart } from '@/utilities/addToCart';
 import OrderForm from '../orderForm/orderForm';
 import CartItems from '../cartItems/cartItems';
 import { Cart } from '@/types/cart';
@@ -28,8 +27,6 @@ const Checkout = () => {
             setItems({});
         }
     }, [cart]);
-
-    console.log(cart);
 
     //if there are items in the cart then display it
     const displayCart = itemCount ? <div className={styles.container}>

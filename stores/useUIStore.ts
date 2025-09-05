@@ -38,7 +38,8 @@ export const useUIStore = create<UIState>((set) => ({
         email: '',
         phone: '',
         area: '',
-        paymentMethod: ''
+        paymentMethod: '',
+        shipping: 0
     },
     openDrawer: () => set(state => ({ isDrawerOpen: true })),
     closeDrawer: () => set(state => ({ isDrawerOpen: false, isCategoryMenuOpen: false, isShopMenuOpen: false })),
@@ -77,10 +78,30 @@ export const useUIStore = create<UIState>((set) => ({
             }
         }
     }),
-    updateOrderForm: (value):void => set(state => ({
-        orderForm: {
-            ...state.orderForm,
-            [value.id]: value.payload
+    updateOrderForm: (value):void => set(state => {
+        if (value.id === 'area'){
+            let shipping = 0;
+            if (value.payload === 'inside dhaka'){
+                shipping = 80;
+            }
+            else if (value.payload === 'outside dhaka'){
+                shipping = 150;
+            }
+            
+            return {
+                orderForm: {
+                    ...state.orderForm,
+                    area: value.payload,
+                    shipping
+                }
+            }
         }
-    }))
+
+        return {
+            orderForm: {
+                ...state.orderForm,
+                [value.id]: value.payload
+            }
+        }
+    })
 }))
